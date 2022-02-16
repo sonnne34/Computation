@@ -1,7 +1,8 @@
-package com.sonne.computation
+package com.sonne.computation.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sonne.computation.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

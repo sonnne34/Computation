@@ -13,7 +13,8 @@ class ChooseLevelFragment : Fragment() {
 
     private var _binding: FragmentChooseLevelBinding? = null
     private val binding: FragmentChooseLevelBinding
-        //переопределяем геттер у binding, с помощью элвис-оператора проверяем на null, и если что, то бросаем исключение
+        //переопределяем геттер у binding, с помощью элвис-оператора проверяем на null,
+        // и если что, то бросаем исключение
         get() = _binding ?: throw RuntimeException("FragmentChooseLevelBinding == null")
 
 

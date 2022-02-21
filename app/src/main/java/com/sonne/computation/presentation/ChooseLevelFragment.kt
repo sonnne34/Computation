@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.sonne.computation.R
 import com.sonne.computation.databinding.FragmentChooseLevelBinding
 import com.sonne.computation.domian.entity.Level
 
@@ -46,10 +45,15 @@ class ChooseLevelFragment : Fragment() {
     }
 
     private fun launchGameFragment(level: Level) {
-        val args = Bundle().apply {
-            putParcelable(GameFragment.KEY_LEVEL, level)
-        }
-        findNavController().navigate(R.id.action_chooseLevelFragment2_to_gameFragment2, args)
+//        если не использовать navigation
+//        val args = Bundle().apply {
+//            putParcelable(GameFragment.KEY_LEVEL, level)
+//        }
+//        findNavController().navigate(R.id.action_chooseLevelFragment2_to_gameFragment2, args)
+
+        findNavController().navigate(
+            ChooseLevelFragmentDirections.actionChooseLevelFragment2ToGameFragment2(level)
+        )
     }
 
     override fun onDestroyView() {

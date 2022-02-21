@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.sonne.computation.R
 import com.sonne.computation.databinding.FragmentGameBinding
 import com.sonne.computation.domian.entity.GameResult
@@ -17,9 +18,13 @@ import com.sonne.computation.domian.entity.Level
 
 class GameFragment : Fragment() {
 
-    private lateinit var level: Level
+//    первый способ получить args - с помощью ленивой инициализации
+    private val args by navArgs<GameFragmentArgs>()
+
     private val viewModelFactory by lazy {
-        GameViewModelFactory(level, requireActivity().application)
+//        второй способ
+//        val args = GameFragmentArgs.fromBundle(requireArguments())
+        GameViewModelFactory(args.level, requireActivity().application)
     }
 
     private val viewModel: GameViewModel by lazy {
@@ -42,11 +47,6 @@ class GameFragment : Fragment() {
         //переопределяем геттер у binding, с помощью элвис-оператора проверяем на null,
         // и если что, то бросаем исключение
         get() = _binding ?: throw RuntimeException("FragmentGameBinding == null")
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parseArgs()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -114,10 +114,14 @@ class GameFragment : Fragment() {
     }
 
     private fun launchGameFinishedFragment(gameResult: GameResult) {
-        val args = Bundle().apply {
-            putParcelable(GameFinishedFragment.KEY_GAME_RESULT, gameResult)
-        }
-        findNavController().navigate(R.id.action_gameFragment2_to_gameFinishedFragment, args)
+//        если не использовать navigation, оставлено как пример
+//        val args = Bundle().apply {
+//            putParcelable(GameFinishedFragment.KEY_GAME_RESULT, gameResult)
+//        }
+//        findNavController().navigate(R.id.action_gameFragment2_to_gameFinishedFragment, args)
+        findNavController().navigate(
+            GameFragmentDirections.actionGameFragment2ToGameFinishedFragment(gameResult)
+        )
     }
 
     override fun onDestroyView() {
@@ -125,23 +129,25 @@ class GameFragment : Fragment() {
         _binding = null
     }
 
-    private fun parseArgs() {
-        requireArguments().getParcelable<Level>(KEY_LEVEL)?.let {
-            level = it
-        }
-    }
+//      чтобы доставать инфо из аргументов (из-за navigation больше не использую)
+//    private fun parseArgs() {
+//        requireArguments().getParcelable<Level>(KEY_LEVEL)?.let {
+//            level = it
+//        }
+//    }
 
-    companion object {
-
-        const val NAME = "GameFragment"
-        const val KEY_LEVEL = "level"
-
-        fun newInstance(level: Level): GameFragment {
-            return GameFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(KEY_LEVEL, level)
-                }
-            }
-        }
-    }
+//        больше не используется, остаётся как пример:
+//    companion object {
+//
+//        const val NAME = "GameFragment"
+//        const val KEY_LEVEL = "level"
+//
+//        fun newInstance(level: Level): GameFragment {
+//            return GameFragment().apply {
+//                arguments = Bundle().apply {
+//                    putParcelable(KEY_LEVEL, level)
+//                }
+//            }
+//        }
+//    }
 }

@@ -45,12 +45,6 @@ class ChooseLevelFragment : Fragment() {
     }
 
     private fun launchGameFragment(level: Level) {
-//        если не использовать navigation
-//        val args = Bundle().apply {
-//            putParcelable(GameFragment.KEY_LEVEL, level)
-//        }
-//        findNavController().navigate(R.id.action_chooseLevelFragment2_to_gameFragment2, args)
-
         findNavController().navigate(
             ChooseLevelFragmentDirections.actionChooseLevelFragment2ToGameFragment2(level)
         )
@@ -59,13 +53,5 @@ class ChooseLevelFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-
-        const val NAME = "ChooseLevelFragment"
-        fun newInstance(): ChooseLevelFragment {
-            return ChooseLevelFragment()
-        }
     }
 }

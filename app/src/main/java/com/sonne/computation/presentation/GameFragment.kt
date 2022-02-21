@@ -114,11 +114,6 @@ class GameFragment : Fragment() {
     }
 
     private fun launchGameFinishedFragment(gameResult: GameResult) {
-//        если не использовать navigation, оставлено как пример
-//        val args = Bundle().apply {
-//            putParcelable(GameFinishedFragment.KEY_GAME_RESULT, gameResult)
-//        }
-//        findNavController().navigate(R.id.action_gameFragment2_to_gameFinishedFragment, args)
         findNavController().navigate(
             GameFragmentDirections.actionGameFragment2ToGameFinishedFragment(gameResult)
         )
@@ -128,26 +123,4 @@ class GameFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-//      чтобы доставать инфо из аргументов (из-за navigation больше не использую)
-//    private fun parseArgs() {
-//        requireArguments().getParcelable<Level>(KEY_LEVEL)?.let {
-//            level = it
-//        }
-//    }
-
-//        больше не используется, остаётся как пример:
-//    companion object {
-//
-//        const val NAME = "GameFragment"
-//        const val KEY_LEVEL = "level"
-//
-//        fun newInstance(level: Level): GameFragment {
-//            return GameFragment().apply {
-//                arguments = Bundle().apply {
-//                    putParcelable(KEY_LEVEL, level)
-//                }
-//            }
-//        }
-//    }
 }

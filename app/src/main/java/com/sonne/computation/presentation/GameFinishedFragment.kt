@@ -34,7 +34,7 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.gameResult = args.gameResult
         setupClickListeners()
 //        bindViews()
     }

@@ -5,13 +5,75 @@
         <item name="android:textSize">36sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/purple_700</item>
     </style>
     <style name="QuestionTextStyle">
         <item name="android:padding">16dp</item>
         <item name="android:textSize">48sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">144dp</item>
+        <item name="android:layout_height">144dp</item>
+        <item name="android:background">@drawable/circle_background</item>
     </style>
+
+    <style name="FragmentsLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">30dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <style name="Icons">
+        <item name="android:layout_width">128dp</item>
+        <item name="android:layout_height">128dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">30dp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="Headers">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="ProgressAnswers">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextFinishLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Buttons">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="TextRules">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>
